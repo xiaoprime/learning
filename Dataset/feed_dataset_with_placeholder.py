@@ -1,5 +1,6 @@
 import tensorflow as tf
 import numpy as np
+import os
 
 # Load the training data into two NumPy arrays, for example using `np.load()`.
 # Use fake data
@@ -27,5 +28,7 @@ with tf.Session() as sess:
 		try:
   			print(sess.run(next_element))
 		except tf.errors.OutOfRangeError:
-  			print("End of dataset")  # ==> "End of dataset"
-  			break
+			print("End of dataset")  # ==> "End of dataset"
+			break
+	train_writer = tf.summary.FileWriter(os.getcwd(), sess.graph)
+	train_writer.close()

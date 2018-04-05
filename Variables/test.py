@@ -1,4 +1,5 @@
 import tensorflow as tf
+import os
 
 #tf.enable_eager_execution()
 
@@ -15,3 +16,5 @@ with tf.Session() as sess:
 	for _ in range(3):
 		sess.run(add)
 		print(tf_variable.eval())
+	train_writer = tf.summary.FileWriter(os.getcwd(), sess.graph)
+	train_writer.close()
