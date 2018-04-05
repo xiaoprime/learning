@@ -18,6 +18,4 @@ with tf.Session() as sess:
 		print(sess.run(tf_variable))
 	#print(constant.eval())
 
-x = [[2.]]
-m = tf.matmul(x, x)
 #print("hello, {}".format(m.eval()))
