@@ -13,4 +13,5 @@ init_op = tf.global_variables_initializer()
 with tf.Session() as sess:
 	sess.run(init_op)
 	for _ in range(3):
-		print(sess.run(tf_variable))
+		sess.run(add)
+		print(tf_variable.eval())
