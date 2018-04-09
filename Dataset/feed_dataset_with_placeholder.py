@@ -2,6 +2,8 @@ import tensorflow as tf
 import numpy as np
 import os
 
+TENSORBOARD_FOLDER = os.getcwd()+'/__tensorboard__'
+
 # Load the training data into two NumPy arrays, for example using `np.load()`.
 # Use fake data
 #with np.load("/var/data/training_data.npy") as data:
@@ -30,5 +32,5 @@ with tf.Session() as sess:
 		except tf.errors.OutOfRangeError:
 			print("End of dataset")  # ==> "End of dataset"
 			break
-	train_writer = tf.summary.FileWriter(os.getcwd(), sess.graph)
+	train_writer = tf.summary.FileWriter(TENSORBOARD_FOLDER, sess.graph)
 	train_writer.close()

@@ -1,6 +1,7 @@
 import tensorflow as tf
 import os
 
+TENSORBOARD_FOLDER = os.getcwd()+'/__tensorboard__'
 #tf.enable_eager_execution()
 
 print(tf.executing_eagerly())
@@ -16,5 +17,5 @@ with tf.Session() as sess:
 	for _ in range(3):
 		sess.run(add)
 		print(tf_variable.eval())
-	train_writer = tf.summary.FileWriter(os.getcwd(), sess.graph)
+	train_writer = tf.summary.FileWriter(TENSORBOARD_FOLDER, sess.graph)
 	train_writer.close()

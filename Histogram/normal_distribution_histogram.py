@@ -1,6 +1,8 @@
 import tensorflow as tf
 import os
 
+TENSORBOARD_FOLDER = os.getcwd()+'/__tensorboard__'
+
 k = tf.placeholder(tf.float32)
 
 # Make a normal distribution, with a shifting mean
@@ -10,7 +12,7 @@ tf.summary.histogram("normal/moving_mean", mean_moving_normal)
 
 # Setup a session and summary writer
 sess = tf.Session()
-writer = tf.summary.FileWriter(os.getcwd())
+writer = tf.summary.FileWriter(TENSORBOARD_FOLDER)
 
 summaries = tf.summary.merge_all()
 
